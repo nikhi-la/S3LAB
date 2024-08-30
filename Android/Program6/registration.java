@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,8 @@ public class registration extends AppCompatActivity implements View.OnClickListe
     EditText name,phn;
     CheckBox sing,dance,draw,read,movie,music;
     Button reg;
+    RadioGroup rg;
+    RadioButton m,f,o;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,8 @@ public class registration extends AppCompatActivity implements View.OnClickListe
         read = (CheckBox) findViewById(R.id.read);
         movie = (CheckBox) findViewById(R.id.movie);
         music = (CheckBox) findViewById(R.id.music);
+        rg = (RadioGroup)findViewById(R.id.gender);
+
 
         reg = (Button) findViewById(R.id.regbtn);
 
@@ -55,28 +61,34 @@ public class registration extends AppCompatActivity implements View.OnClickListe
             String n = name.getText().toString();
             int p = Integer.parseInt(phn.getText().toString());
 
-            String interest[] = new String[6];
+            StringBuilder interest = new StringBuilder();
+
 
             if(sing.isChecked())
-                interest[0]="Singing";
+                interest.append("Singing").append("\n\n");
             if(dance.isChecked())
-                interest[1]="Dancing";
+                interest.append("Dancing").append("\n\n");
             if(draw.isChecked())
-                interest[2]="Drawing";
+                interest.append("Drawing").append("\n\n");
             if(read.isChecked())
-                interest[3]="Reading";
+                interest.append("Reading").append("\n\n");
             if(movie.isChecked())
-                interest[4]="Movie";
+                interest.append("Movies").append("\n\n");
             if(music.isChecked())
-                interest[5]="Music";
+                interest.append("Music").append("\n\n");
+
+            RadioButton genderSelected = (RadioButton) findViewById(rg.getCheckedRadioButtonId());
+            String gender = genderSelected.getText().toString();
 
             SharedPreferences sp = getSharedPreferences("MyPref",MODE_PRIVATE);
 
             SharedPreferences.Editor ed = sp.edit();
             ed.putString("Name",n);
             ed.putString("Phone",String.valueOf(p));
-            Set<String> interestSet = new HashSet<>(Arrays.asList(interest));
-            ed.putStringSet("Interest", interestSet);
+
+            ed.putString("Interest", String.valueOf(interest));
+
+            ed.putString("Gender", gender);
 
             ed.apply();
 

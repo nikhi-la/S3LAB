@@ -29,7 +29,7 @@ public class details extends AppCompatActivity {
 
         name = (TextView) findViewById(R.id.name);
         phn = (TextView) findViewById(R.id.phone);
-        //gender = (TextView) findViewById(R.id.gender);
+        gender = (TextView) findViewById(R.id.gender);
         interest = (TextView) findViewById(R.id.interest);
 
         SharedPreferences sp = getSharedPreferences("MyPref",MODE_PRIVATE);
@@ -41,10 +41,10 @@ public class details extends AppCompatActivity {
             phn.setText(sp.getString("Phone",""));
         }
         if(sp.contains("Interest")){
-            Set<String> interestSet = sp.getStringSet("Interest", new HashSet<>());
-            String[] interestArray = interestSet.toArray(new String[0]);
-
-            interest.setText(String.valueOf(interestArray[0]));
+            interest.setText(sp.getString("Interest","").toString());
+        }
+        if(sp.contains("Gender")){
+            gender.setText(sp.getString("Gender","").toString());
         }
     }
 }
