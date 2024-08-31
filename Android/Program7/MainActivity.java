@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 t1.show();
             }
             else
-                Toast.makeText(this,"Nishal Failed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Login Failed",Toast.LENGTH_SHORT).show();
         }
     }
 }
