@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lab</string>
+    <string-array name="Country">
+        <item>Apple</item>
+        <item>Orange</item>
+        <item>Grapes</item>
+        <item>Strawberry</item>
+        <item>Blueberry</item>
+        <item>Kiwi</item>
+    </string-array>
+</resources>
