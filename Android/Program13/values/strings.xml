@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Program13</string>
+    <string-array name="User">
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+    </string-array>
+</resources>
