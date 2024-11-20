@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exam</string>
+    <string-array name="category">
+        <item>Novel</item>
+        <item>Comic</item>
+        <item>Horror</item>
+        <item>Crime</item>
+    </string-array>
+</resources>
